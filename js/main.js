@@ -17,15 +17,21 @@
     var burger = document.querySelector(".burger");
     var mobileNav = document.querySelector(".mobile-nav");
     if (burger && mobileNav) {
+      burger.setAttribute("aria-expanded", "false");
+      mobileNav.setAttribute("aria-hidden", "true");
       burger.addEventListener("click", function () {
         var open = mobileNav.classList.toggle("open");
         burger.classList.toggle("open", open);
+        burger.setAttribute("aria-expanded", open ? "true" : "false");
+        mobileNav.setAttribute("aria-hidden", open ? "false" : "true");
         document.body.style.overflow = open ? "hidden" : "";
       });
       mobileNav.querySelectorAll("a").forEach(function (a) {
         a.addEventListener("click", function () {
           mobileNav.classList.remove("open");
           burger.classList.remove("open");
+          burger.setAttribute("aria-expanded", "false");
+          mobileNav.setAttribute("aria-hidden", "true");
           document.body.style.overflow = "";
         });
       });
@@ -56,7 +62,9 @@
     /* ---- logo marquee: duplicate track for a seamless loop ---- */
     var track = document.querySelector(".marquee-track");
     if (track && !track.dataset.cloned) {
-      track.innerHTML += track.innerHTML;
+      Array.prototype.slice.call(track.children).forEach(function (child) {
+        track.appendChild(child.cloneNode(true));
+      });
       track.dataset.cloned = "true";
     }
 
@@ -96,27 +104,46 @@
       });
     }
 
-    /* ---- forms (no backend) ---- */
+    /* ---- forms (secure honeypot + validation) ---- */
     document.querySelectorAll("form[data-form]").forEach(function (form) {
       form.addEventListener("submit", function (e) {
         e.preventDefault();
-        var msg = form.querySelector(".form-msg");
-        var invalid = false;
-        form.querySelectorAll("input[required], select[required]").forEach(function (f) {
-          if (!f.value || (f.type === "email" && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(f.value))) {
-            invalid = true;
-            f.style.borderColor = "#b4553f";
-          } else {
-            f.style.borderColor = "";
-          }
-        });
-        if (!msg) return;
-        if (invalid) {
-          msg.textContent = "Please complete the highlighted fields.";
+
+        // Anti-spam Honeypot Check
+        var hp = form.querySelector('input[name="website_hp"]');
+        if (hp && hp.value !== "") {
+          // Silently discard bot submission
           return;
         }
+
+        var msg = form.querySelector(".form-msg");
+        var invalid = false;
+        form.querySelectorAll("input[required], select[required], textarea[required]").forEach(function (f) {
+          var isEmail = f.type === "email";
+          var validEmail = !isEmail || /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(f.value.trim());
+          if (!f.value.trim() || !validEmail) {
+            invalid = true;
+            f.style.borderColor = "#b4553f";
+            f.setAttribute("aria-invalid", "true");
+          } else {
+            f.style.borderColor = "";
+            f.removeAttribute("aria-invalid");
+          }
+        });
+
+        if (!msg) return;
+        if (invalid) {
+          msg.style.color = "#b4553f";
+          msg.textContent = "Please complete all required fields correctly.";
+          return;
+        }
+
+        msg.style.color = "var(--ink)";
         msg.textContent = form.getAttribute("data-success") || "Thank you — we will be in touch shortly.";
         form.reset();
+        setTimeout(function () {
+          msg.textContent = "";
+        }, 6000);
       });
     });
   });

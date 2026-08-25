@@ -1,0 +1,23 @@
+{
+  "name": "prime-restaurant-surat",
+  "version": "1.0.0",
+  "description": "Prime Restaurant & Banquet official website — Authentic Indian & Multi-Cuisine Dining in Surat, Gujarat.",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve .",
+    "dev": "npx serve .",
+    "test": "echo \"Error: no test specified\" && exit 0"
+  },
+  "keywords": [
+    "restaurant",
+    "surat",
+    "dindoli",
+    "punjabi-food",
+    "paneer-specialties",
+    "tandoori",
+    "party-hall",
+    "banquet"
+  ],
+  "author": "Prime Restaurant & Banquet",
+  "license": "ISC"
+}

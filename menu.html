@@ -5,34 +5,87 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Menu — Prime Restaurant &amp; Banquet Signature Menu</title>
 <meta name="description" content="Explore Prime Restaurant menu: Sp. Prime Paneer, Tandoori Starters, Punjabi Gravies, Chinese Sizzlers, Dal Tadka, Mocktails &amp; Desserts in Surat." />
+<meta name="keywords" content="Prime Restaurant Menu, Paneer dishes price, Punjabi main course Surat, Chinese Sizzler Dindoli, Dal Tadka Surat" />
+<meta name="robots" content="index, follow" />
+<meta name="referrer" content="strict-origin-when-cross-origin" />
+<link rel="canonical" href="https://primerestaurant.in/menu.html" />
+
+<!-- Open Graph & Social Cards -->
 <meta property="og:type" content="website" />
 <meta property="og:title" content="Menu — Prime Restaurant Signature Indian Menu" />
 <meta property="og:description" content="Authentic Indian &amp; Multi-Cuisine dishes with prices in INR (₹). Pure Veg &amp; Jain Food options." />
-<link rel="icon" type="image/png" href="./accests/favicon.png" />
-<link rel="apple-touch-icon" href="./accests/favicon.png" />
-<meta property="og:image" content="./accests/logo.png" />
+<meta property="og:image" content="./assets/logo.png" />
+<meta property="og:url" content="https://primerestaurant.in/menu.html" />
+
+<link rel="icon" type="image/png" href="./assets/favicon.png" />
+<link rel="apple-touch-icon" href="./assets/favicon.png" />
+
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Jost:wght@300;400;500&display=swap" />
 <link rel="stylesheet" href="./css/style.css" />
+
+<!-- Schema.org Menu Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Menu",
+  "name": "Prime Restaurant & Banquet Signature Food Menu",
+  "description": "Authentic Indian & Multi-Cuisine Food Menu featuring Pure Vegetarian and Jain delicacies.",
+  "hasMenuSection": [
+    {
+      "@type": "MenuSection",
+      "name": "Paneer Main Course",
+      "hasMenuItem": [
+        {
+          "@type": "MenuItem",
+          "name": "Sp. Prime Paneer (Chef Sp.)",
+          "description": "Head chef special gravy with tender cottage cheese cubes & rich aromatic spices.",
+          "offers": { "@type": "Offer", "price": "220.00", "priceCurrency": "INR" }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Paneer Tawa Masala",
+          "description": "Semi-dry cottage cheese tossed on hot griddle with bell peppers and onions.",
+          "offers": { "@type": "Offer", "price": "195.00", "priceCurrency": "INR" }
+        }
+      ]
+    },
+    {
+      "@type": "MenuSection",
+      "name": "Chinese & Sizzlers",
+      "hasMenuItem": [
+        {
+          "@type": "MenuItem",
+          "name": "Chinese Sizzler (500gm)",
+          "description": "Hot sizzling platter served with fried rice, noodles, Manchurian & crispy veggies.",
+          "offers": { "@type": "Offer", "price": "395.00", "priceCurrency": "INR" }
+        }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
 <header class="site-header solid">
   <div class="wrap bar">
-    <a class="brand" href="./index.html"><img src="./accests/logo.png" alt="Prime Restaurant &amp; Banquet" class="brand-logo" /></a>
-    <nav class="nav">
+    <a class="brand" href="./index.html" aria-label="Prime Restaurant Home"><img src="./assets/logo.png" alt="Prime Restaurant &amp; Banquet Logo" class="brand-logo" width="160" height="42" /></a>
+    <nav class="nav" aria-label="Main navigation">
       <a href="./index.html">Home</a>
       <a href="./about.html">About</a>
       <a class="active" href="./menu.html">Menu</a>
       <a href="./chef.html">Kitchen &amp; Team</a>
       <a href="./contact.html">Contact &amp; Location</a>
     </nav>
-    <button class="burger" aria-label="Toggle menu"><span></span><span></span></button>
+    <button class="burger" aria-label="Toggle navigation menu"><span></span><span></span></button>
   </div>
 </header>
 
-<div class="mobile-nav">
+<div class="mobile-nav" aria-label="Mobile navigation">
   <ul>
     <li><a href="./index.html">Home</a></li>
     <li><a href="./about.html">About</a></li>
@@ -42,21 +95,21 @@
   </ul>
 </div>
 
-<main>
+<main id="main-content">
   <section class="page-hero">
     <div class="wrap">
       <span class="eyebrow">Prime Food Menu</span>
       <h1>Authentic Flavors &amp; Multi-Cuisine Delights</h1>
       <p>All dishes prepared fresh with premium ingredients, aromatic spices, and traditional recipes. 100% Pure Vegetarian with Jain Food options available.</p>
-      <div class="menu-tabs">
-        <button class="active" data-cat="all">All</button>
-        <button data-cat="paneer">Paneer Main Course</button>
-        <button data-cat="punjabi">Punjabi Dishes</button>
-        <button data-cat="starters">Tandoori &amp; Starters</button>
-        <button data-cat="chinese">Chinese &amp; Sizzlers</button>
-        <button data-cat="rice-dal">Rice &amp; Dal</button>
-        <button data-cat="drinks">Mocktails &amp; Drinks</button>
-        <button data-cat="desserts">Desserts &amp; Ice Cream</button>
+      <div class="menu-tabs" role="tablist" aria-label="Food Categories">
+        <button class="active" data-cat="all" role="tab">All</button>
+        <button data-cat="paneer" role="tab">Paneer Main Course</button>
+        <button data-cat="punjabi" role="tab">Punjabi Dishes</button>
+        <button data-cat="starters" role="tab">Tandoori &amp; Starters</button>
+        <button data-cat="chinese" role="tab">Chinese &amp; Sizzlers</button>
+        <button data-cat="rice-dal" role="tab">Rice &amp; Dal</button>
+        <button data-cat="drinks" role="tab">Mocktails &amp; Drinks</button>
+        <button data-cat="desserts" role="tab">Desserts &amp; Ice Cream</button>
       </div>
     </div>
   </section>
@@ -148,14 +201,14 @@
       </div>
 
       <div class="menu-figures reveal">
-        <img src="https://framerusercontent.com/images/nVSNgfWwk0Ii7ViChFeq60u4sW0.png?scale-down-to=1024" alt="Dal Tadka &amp; Roti" />
-        <img src="https://framerusercontent.com/images/V6ea4bkbYylsthLKCAuwhdnsz7U.png?scale-down-to=1024" alt="Paneer Dishes" />
-        <img src="https://framerusercontent.com/images/pZAJe0LM2UawcRdHkXXGBQYe8jQ.png?scale-down-to=1024" alt="Indian Starters" />
+        <img src="https://framerusercontent.com/images/nVSNgfWwk0Ii7ViChFeq60u4sW0.png?scale-down-to=1024" alt="Dal Tadka &amp; Roti" width="500" height="600" loading="lazy" decoding="async" />
+        <img src="https://framerusercontent.com/images/V6ea4bkbYylsthLKCAuwhdnsz7U.png?scale-down-to=1024" alt="Paneer Dishes" width="500" height="600" loading="lazy" decoding="async" />
+        <img src="https://framerusercontent.com/images/pZAJe0LM2UawcRdHkXXGBQYe8jQ.png?scale-down-to=1024" alt="Indian Starters" width="500" height="600" loading="lazy" decoding="async" />
       </div>
     </div>
   </section>
 
-  <!-- Split Dark Footer Banner (Image 3) -->
+  <!-- Split Dark Footer Banner -->
   <section class="split-footer-banner">
     <div class="banner-col banner-left">
       <span class="eyebrow">✦ A TABLE AWAITS ✦</span>
@@ -168,15 +221,16 @@
       <h2>Stay Connected to Moments at the Table</h2>
       <p>Receive thoughtful updates, seasonal inspirations, exclusive insights, and meaningful moments worth discovering and sharing.</p>
       <form class="banner-form" data-form data-success="You're subscribed — welcome to Prime Restaurant!">
+        <input type="text" name="website_hp" tabindex="-1" autocomplete="off" class="hp-field" />
         <input type="email" required placeholder="Your email address*" aria-label="Your email address" />
-        <button class="banner-form-btn" type="submit">&#8594;</button>
+        <button class="banner-form-btn" type="submit" aria-label="Subscribe">&#8594;</button>
       </form>
       <div class="form-msg" style="margin-top:10px;font-size:0.85rem"></div>
     </div>
   </section>
 </main>
 
-<!-- Deep Luxury Footer (Image 4) -->
+<!-- Deep Luxury Footer -->
 <footer class="site-footer">
   <div class="wrap">
     <div class="footer-grid-5">
@@ -205,10 +259,10 @@
       <div>
         <h5 class="f-title">SOCIAL MEDIA</h5>
         <ul class="f-links">
-          <li><a href="#">Instagram</a></li>
-          <li><a href="#">Facebook</a></li>
-          <li><a href="#">Pinterest</a></li>
-          <li><a href="#">LinkedIn</a></li>
+          <li><a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://facebook.com" target="_blank" rel="noopener">Facebook</a></li>
+          <li><a href="https://pinterest.com" target="_blank" rel="noopener">Pinterest</a></li>
+          <li><a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a></li>
         </ul>
       </div>
     </div>
@@ -217,7 +271,7 @@
     <div class="footer-watermark-row">
       <div class="giant-watermark">PRIME</div>
       <div class="stamp-emblem">
-        <svg viewBox="0 0 160 160" width="150" height="150">
+        <svg viewBox="0 0 160 160" width="150" height="150" aria-hidden="true">
           <defs>
             <path id="emblemCirclePathMenu" d="M 80, 80 m -64, 0 a 64,64 0 1,1 128,0 a 64,64 0 1,1 -128,0" />
           </defs>
