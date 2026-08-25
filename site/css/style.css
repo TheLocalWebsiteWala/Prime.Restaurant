@@ -854,7 +854,7 @@ blockquote {
 
 /* ---------- Responsive ---------- */
 @media (max-width: 1024px) {
-  .cards { grid-template-columns: repeat(2, 1fr); }
+  .cards, .party-cards { grid-template-columns: repeat(2, 1fr); }
   .posts, .team, .info-grid { grid-template-columns: 1fr 1fr; }
   .reserve-grid { grid-template-columns: 1fr; }
   .reserve-grid img:last-child { display: none; }
@@ -867,18 +867,47 @@ blockquote {
   .arch-img-card { display: none; }
 }
 
+@media (max-width: 960px) {
+  .your-way-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .your-way-media {
+    min-height: 320px;
+    height: 320px;
+    width: 100%;
+  }
+  .your-way-content h2 {
+    font-size: 2.2rem;
+  }
+}
+
 @media (max-width: 860px) {
   .nav, .header-cta { display: none; }
   .burger { display: block; }
   .split, .split.reverse { grid-template-columns: 1fr; }
   .split.reverse > *:first-child { order: 0; }
   .hero h1 span { padding-left: 0 !important; }
+
+  /* Swipeable horizontal menu tabs on mobile */
+  .menu-tabs {
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    border-radius: 18px;
+    padding: 8px 12px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .menu-tabs::-webkit-scrollbar { display: none; }
 }
 
 @media (max-width: 620px) {
-  .cards, .posts, .team, .info-grid, .row-2, .footer-imgs { grid-template-columns: 1fr; }
+  .cards, .party-cards, .posts, .team, .info-grid, .row-2, .footer-imgs { grid-template-columns: 1fr; }
   .newsletter form { flex-direction: column; }
   .stats { gap: 30px; }
   .footer-grid-5 { grid-template-columns: 1fr; }
+  .your-way-info { grid-template-columns: 1fr; gap: 20px; }
 }
+
 
